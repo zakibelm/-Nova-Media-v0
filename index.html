@@ -18,11 +18,11 @@
             --accent-text: #080B13;
             --glass-bg: rgba(255, 255, 255, 0.02);
             --border: rgba(255, 255, 255, 0.05);
-            --glow-opacity: 0.15;
+            --glow-opacity: 0.12;
         }
 
         .light-mode {
-            --app-bg: #F0F4F8;
+            --app-bg: #F4F7FB;
             --sidebar-bg: #FFFFFF;
             --text-primary: #0F172A;
             --text-secondary: #475569;
@@ -30,8 +30,8 @@
             --accent-bg: #0F172A;
             --accent-text: #ffffff;
             --glass-bg: rgba(255, 255, 255, 0.8);
-            --border: rgba(15, 23, 42, 0.08);
-            --glow-opacity: 0.1;
+            --border: rgba(15, 23, 42, 0.06);
+            --glow-opacity: 0.08;
         }
 
         * {
@@ -46,7 +46,7 @@
             color: var(--text-primary);
             margin: 0;
             overflow: hidden;
-            transition: background 0.5s cubic-bezier(0.4, 0, 0.2, 1), color 0.4s ease;
+            transition: background 0.6s cubic-bezier(0.4, 0, 0.2, 1), color 0.4s ease;
         }
 
         .bg-app-bg { background-color: var(--app-bg); }
@@ -55,39 +55,42 @@
         .text-secondary { color: var(--text-secondary); }
         .text-nav-inactive { color: var(--nav-inactive); }
         
-        .btn-primary {
+        .btn-primary-action {
             background-color: var(--accent-bg);
             color: var(--accent-text);
         }
 
         .glass {
             background: var(--glass-bg);
-            backdrop-filter: blur(20px);
+            backdrop-filter: blur(30px);
             border: 1px solid var(--border);
         }
 
         .hero-title {
-          line-height: 1.15;
-          padding: 0.1em 0.2em 0.3em 0.2em; /* Padding vertical pour l'italique et le centrage */
+          line-height: 1.05;
+          padding: 0.2em 0.3em 0.4em 0.3em; /* Vertical and horizontal padding for italics */
           display: inline-block;
+          transform: skewX(-2deg);
         }
 
         .nav-active-glow {
-          box-shadow: 0 0 25px rgba(59, 130, 246, 0.5);
+          box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
         }
 
         .custom-glow {
             opacity: var(--glow-opacity);
-            filter: blur(120px);
+            filter: blur(140px);
             pointer-events: none;
+            transition: opacity 0.6s ease;
         }
 
-        ::-webkit-scrollbar {
-            width: 5px;
+        .custom-scrollbar::-webkit-scrollbar {
+          width: 0px;
         }
-        ::-webkit-scrollbar-thumb {
-            background: var(--border);
-            border-radius: 10px;
+
+        /* Prevent text selection on UI elements */
+        button, aside {
+            user-select: none;
         }
     </style>
 <script type="importmap">
