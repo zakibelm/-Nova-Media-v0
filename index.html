@@ -8,40 +8,86 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --app-bg: #080B13;
+            --sidebar-bg: #0B101B;
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.4);
+            --nav-inactive: rgba(255, 255, 255, 0.2);
+            --accent-bg: #ffffff;
+            --accent-text: #080B13;
+            --glass-bg: rgba(255, 255, 255, 0.02);
+            --border: rgba(255, 255, 255, 0.05);
+            --glow-opacity: 0.15;
+        }
+
+        .light-mode {
+            --app-bg: #F0F4F8;
+            --sidebar-bg: #FFFFFF;
+            --text-primary: #0F172A;
+            --text-secondary: #475569;
+            --nav-inactive: #94A3B8;
+            --accent-bg: #0F172A;
+            --accent-text: #ffffff;
+            --glass-bg: rgba(255, 255, 255, 0.8);
+            --border: rgba(15, 23, 42, 0.08);
+            --glow-opacity: 0.1;
+        }
+
         * {
             box-sizing: border-box;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
+
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background: #080B13;
-            color: #ffffff;
+            background: var(--app-bg);
+            color: var(--text-primary);
             margin: 0;
             overflow: hidden;
+            transition: background 0.5s cubic-bezier(0.4, 0, 0.2, 1), color 0.4s ease;
         }
+
+        .bg-app-bg { background-color: var(--app-bg); }
+        .bg-sidebar-bg { background-color: var(--sidebar-bg); }
+        .text-primary { color: var(--text-primary); }
+        .text-secondary { color: var(--text-secondary); }
+        .text-nav-inactive { color: var(--nav-inactive); }
+        
+        .btn-primary {
+            background-color: var(--accent-bg);
+            color: var(--accent-text);
+        }
+
         .glass {
-            background: rgba(255, 255, 255, 0.02);
-            backdrop-filter: blur(40px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
         }
-        .gradient-text {
-            background: linear-gradient(135deg, #3B82F6 0%, #60A5FA 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+
+        .hero-title {
+          line-height: 1.15;
+          padding: 0.1em 0.2em 0.3em 0.2em; /* Padding vertical pour l'italique et le centrage */
+          display: inline-block;
         }
+
+        .nav-active-glow {
+          box-shadow: 0 0 25px rgba(59, 130, 246, 0.5);
+        }
+
+        .custom-glow {
+            opacity: var(--glow-opacity);
+            filter: blur(120px);
+            pointer-events: none;
+        }
+
         ::-webkit-scrollbar {
-            width: 4px;
-        }
-        ::-webkit-scrollbar-track {
-            background: transparent;
+            width: 5px;
         }
         ::-webkit-scrollbar-thumb {
-            background: rgba(255, 255, 255, 0.05);
+            background: var(--border);
             border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: rgba(255, 255, 255, 0.1);
         }
     </style>
 <script type="importmap">
