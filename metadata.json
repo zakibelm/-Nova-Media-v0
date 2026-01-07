@@ -1,0 +1,8 @@
+{
+  "name": "Ultimate Media Agent Interface",
+  "description": "A high-end, GSAP-animated dashboard to control and visualize complex n8n media workflows including video generation, social posting, and creative editing.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
